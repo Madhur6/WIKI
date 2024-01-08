@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+      <h3> Create Your Page </h3>
+      <form action="{%url 'edit_page' TITLE=title%}" method="post">
+        {%csrf_token%}
+        {%for fm in forms %}
+        <label> {{fm.label}} </label>
+        <div> {{fm}} </div>
+        {%endfor %}
+        <button> save </button>
+      </form>
+{% endblock %}
